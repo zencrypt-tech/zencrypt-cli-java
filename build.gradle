@@ -1,0 +1,57 @@
+plugins { // Apply Java and Application plugins
+    id 'java'
+    id 'application'
+} 
+
+group = 'com.zencrypt' // Set the group for the project
+version = '1.0' // Set the version for the project
+sourceCompatibility = '1.8' // Set the source compatibility to Java 8
+
+application { // Configure the application plugin for the main class
+    mainClass = 'Zencrypt'
+}
+
+repositories { // Use Maven Central repository for dependencies
+    mavenCentral()
+}
+
+dependencies {
+    // Local JAR files from lib directory
+    implementation fileTree(dir: 'lib', include: '*.jar')
+    
+    implementation 'commons-cli:commons-cli:1.5.0' // Add Apache Commons CLI for command-line parsing
+    
+    testImplementation 'junit:junit:4.13.2' // Add JUnit for testing
+    
+    implementation 'commons-io:commons-io:2.11.0' // Add Apache Commons IO for file handling
+    
+    implementation 'org.apache.commons:commons-lang3:3.12.0' // Add Apache Commons Lang for utility functions
+    
+    implementation 'org.apache.commons:commons-text:1.10.0' // Add Apache Commons Text for string manipulation
+    
+    implementation 'org.apache.commons:commons-compress:1.21.0' // Add Apache Commons Compress for file compression and decompression
+    
+    implementation 'org.apache.commons:commons-configuration2:2.8.0' // Add Apache Commons Configuration for configuration management
+    
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.70' // Add Bouncy Castle for cryptographic operations
+    implementation 'commons-codec:commons-codec:1.15' // Add Apache Commons Codec for encoding/decoding operations
+}
+
+tasks.named('jar') { // Configure the JAR task to include the main class in the manifest
+    manifest {
+        attributes 'Main-Class': 'Zencrypt'
+    }
+}
+
+// Create a fat JAR with all dependencies included and set the main class in the manifest
+task fatJar(type: Jar) {
+    archiveBaseName = 'Zencrypt'
+    archiveClassifier = 'all'
+    manifest {
+        attributes 'Main-Class': 'Zencrypt'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    with jar
+}
