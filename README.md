@@ -55,7 +55,7 @@ Version: 1.0                     ***********************************************
     <p> Any unauthorized use, copying, modification, distribution, or reproduction of this software, in whole or in part, is strictly prohibited and constitutes a violation of copyright law. Such unauthorized use may result in civil and/or criminal penalties, including but not limited to legal action and monetary damages. </p>
     <p> To obtain permission for any use, copying, modification, distribution, or reproduction of this software, please contact the copyright holder at the following address: </p>
     <p>
-      <code>ryan@rshatch.com</code>
+      <code>ryanshatch@gmail.com</code>
     </p>
     <p> By using this software, you acknowledge that you have read and understood the terms of this license and agree to comply with all applicable copyright laws. Failure to abide by the terms of this license may subject you to legal consequences. </p>
   </body>
