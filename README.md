@@ -211,6 +211,7 @@ javac -version</code></pre>
     </ul>
     <h3>Planned Improvements</h3>
     <ul>
+      <li>PGP/RSA functionality</li>
       <li>Cleaner key handling.</li>
       <li>Dedicated test files.</li>
       <li>Clearer file input and output naming.</li>
